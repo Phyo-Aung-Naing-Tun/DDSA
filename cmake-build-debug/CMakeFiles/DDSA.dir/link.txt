@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/DDSA.dir/link.d "CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o" "CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o" -o DDSA

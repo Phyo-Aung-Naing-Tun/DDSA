@@ -1,0 +1,13 @@
+/snap/clion/377/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/phyo-aung-naing-tun/Documents/DDSA -B /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug
+-- Configuring done (0.0s)
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    9.2-passbypionter.c
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: DDSA
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
