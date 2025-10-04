@@ -3,5 +3,4 @@ project(DDSA C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(DDSA
-        10-Day/10.1-IDS-update-email-validation.c)
+add_executable(DDSA 10-Day/10.2-IDS-add-point-and-point-transaction.c)

@@ -136,29 +136,29 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
 .PHONY : DDSA/fast
 
-10-Day/10.1-IDS-update-email-validation.o: 10-Day/10.1-IDS-update-email-validation.c.o
-.PHONY : 10-Day/10.1-IDS-update-email-validation.o
+10-Day/10.2-IDS-add-point-and-point-transaction.o: 10-Day/10.2-IDS-add-point-and-point-transaction.c.o
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.o
 
 # target to build an object file
-10-Day/10.1-IDS-update-email-validation.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o
-.PHONY : 10-Day/10.1-IDS-update-email-validation.c.o
+10-Day/10.2-IDS-add-point-and-point-transaction.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.c.o
 
-10-Day/10.1-IDS-update-email-validation.i: 10-Day/10.1-IDS-update-email-validation.c.i
-.PHONY : 10-Day/10.1-IDS-update-email-validation.i
+10-Day/10.2-IDS-add-point-and-point-transaction.i: 10-Day/10.2-IDS-add-point-and-point-transaction.c.i
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.i
 
 # target to preprocess a source file
-10-Day/10.1-IDS-update-email-validation.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i
-.PHONY : 10-Day/10.1-IDS-update-email-validation.c.i
+10-Day/10.2-IDS-add-point-and-point-transaction.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.i
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.c.i
 
-10-Day/10.1-IDS-update-email-validation.s: 10-Day/10.1-IDS-update-email-validation.c.s
-.PHONY : 10-Day/10.1-IDS-update-email-validation.s
+10-Day/10.2-IDS-add-point-and-point-transaction.s: 10-Day/10.2-IDS-add-point-and-point-transaction.c.s
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.s
 
 # target to generate assembly for a file
-10-Day/10.1-IDS-update-email-validation.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s
-.PHONY : 10-Day/10.1-IDS-update-email-validation.c.s
+10-Day/10.2-IDS-add-point-and-point-transaction.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.s
+.PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.c.s
 
 # Help Target
 help:
@@ -170,9 +170,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DDSA"
-	@echo "... 10-Day/10.1-IDS-update-email-validation.o"
-	@echo "... 10-Day/10.1-IDS-update-email-validation.i"
-	@echo "... 10-Day/10.1-IDS-update-email-validation.s"
+	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.o"
+	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.i"
+	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.s"
 .PHONY : help
 
 

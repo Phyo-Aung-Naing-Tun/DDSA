@@ -72,28 +72,28 @@ include CMakeFiles/DDSA.dir/flags.make
 CMakeFiles/DDSA.dir/codegen:
 .PHONY : CMakeFiles/DDSA.dir/codegen
 
-CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: CMakeFiles/DDSA.dir/flags.make
-CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c
-CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o -MF CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o.d -o CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c
+CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o: CMakeFiles/DDSA.dir/flags.make
+CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.2-IDS-add-point-and-point-transaction.c
+CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o -MF CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o.d -o CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.2-IDS-add-point-and-point-transaction.c
 
-CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c > CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i
+CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.2-IDS-add-point-and-point-transaction.c > CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.i
 
-CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c -o CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s
+CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.2-IDS-add-point-and-point-transaction.c -o CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.s
 
 # Object files for target DDSA
 DDSA_OBJECTS = \
-"CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o"
+"CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o"
 
 # External object files for target DDSA
 DDSA_EXTERNAL_OBJECTS =
 
-DDSA: CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o
+DDSA: CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o
 DDSA: CMakeFiles/DDSA.dir/build.make
 DDSA: CMakeFiles/DDSA.dir/compiler_depend.ts
 DDSA: CMakeFiles/DDSA.dir/link.txt

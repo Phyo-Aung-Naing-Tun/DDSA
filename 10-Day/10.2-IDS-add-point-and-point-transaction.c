@@ -62,6 +62,8 @@ int confirm_actual_user();
 
 void logout();
 
+void transfer_point();
+
 /**
  * End After Login
  */
@@ -79,9 +81,10 @@ struct Db {
 
 struct PointTransactionDb {
     int id;
-    int sender_id;
-    int receiver_id;
+    int user_id;
+    int related_id;
     int amount;
+    char type[2]; //in or out
     char remark[50];
 };
 
@@ -97,6 +100,7 @@ int g_user_count = 0;
 int g_login_user_id = -1;
 int g_login_tried_count = 0;
 int g_max_allowed_login_tried_count = 3;
+int g_point_transaction_count = 0;
 
 /**
  * End Global Variables
@@ -370,7 +374,8 @@ void show_user_dashboard() {
     int user_option = 0;
     printf("********* Welcome %s ********\n", users[g_login_user_id].name);
     printf("Enter 1 To See Your Information\nEnter 2 To Logout\n");
-    printf("Enter 3 To Update Your Information\nEnter 4 To Exit Program\n");
+    printf("Enter 3 To Update Your Information\nEnter 4 To Transfer Point\n");
+    printf("Enter 5 To Exit Program\n");
     printf("Enter Here => ");
 
     scanf("%d", &user_option);
@@ -382,6 +387,8 @@ void show_user_dashboard() {
     } else if (user_option == 3) {
         update_user_infos();
     } else if (user_option == 4) {
+        transfer_point();
+    }  else if (user_option == 5) {
         exit(0);
     } else {
         printf("Wrong Choice !\n");
@@ -510,11 +517,82 @@ int confirm_actual_user() {
 }
 
 void transfer_point() {
-    int target_user_index = -1;
 
-    while (target_user_index == -1) {
+    int target_user_index = -1;
+    int option = -1;
+    int transfer_retry_option = -1;
+    int available_point =  users[g_login_user_id].point;
+    int to_transfer_point = 0;
+    char remark[50];
+    char type_in[2] = {'i','n'};
+    char type_out[3] = {'o','u','t'};
+
+    printf("\n***** Transfer Your Point ****\n");
+    printf("You have %d point.\n", available_point);
+    printf("Enter Receiver Email\n");
+
         target_user_index = get_user_by_email();
-    }
+
+        if (target_user_index == -1 || g_login_user_id == target_user_index) {
+            if (g_login_user_id == target_user_index) {
+                printf("\nYou Can't Transfer Yourself\n");
+            }
+            printf("\n Press 1 To Retry and Others To Go Back => ");
+            scanf("%d",&option);
+            if (option == 1) {
+                transfer_point();
+            } else {
+                show_user_dashboard();
+            }
+        }
+
+        printf("********Here Receiver Information*********\n");
+        printf("Receiver Name is %s\n", users[target_user_index].name);
+        printf("Receiver Email is %s\n", users[target_user_index].email);
+
+        printf("Enter amount to transfer => ");
+        scanf("%d",&to_transfer_point);
+
+         while(available_point < to_transfer_point) {
+            printf("You Dont Have Enough Money\n");
+            printf("Enter 1 to retry and Others To Go Back => ");
+             scanf("%d",&transfer_retry_option);
+             if (transfer_retry_option == 1) {
+                 printf("Enter amount to transfer => ");
+                 scanf("%d",&to_transfer_point);
+             }else {
+                 show_user_dashboard();
+             }
+        }
+        printf("Enter Remark => ");
+        scanf(" %[^\n]",&remark[0]);
+
+        users[g_login_user_id].point = available_point - to_transfer_point;
+        users[target_user_index].point = users[target_user_index].point + to_transfer_point;
+
+        //record for sender
+        point_transactions[g_point_transaction_count].id = g_point_transaction_count;
+        point_transactions[g_point_transaction_count].user_id = users[g_login_user_id].id;
+        point_transactions[g_point_transaction_count].related_id = users[target_user_index].id;
+        point_transactions[g_point_transaction_count].amount = to_transfer_point;
+        copy_two_char_array(point_transactions[g_point_transaction_count].type,type_out);
+        copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
+
+        g_point_transaction_count++;
+
+        //record for receiver
+        point_transactions[g_point_transaction_count].id = g_point_transaction_count;
+        point_transactions[g_point_transaction_count].user_id = users[target_user_index].id;
+        point_transactions[g_point_transaction_count].related_id = users[g_login_user_id].id;
+        point_transactions[g_point_transaction_count].amount = to_transfer_point;
+        copy_two_char_array(point_transactions[g_point_transaction_count].type,type_in);
+        copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
+
+        g_point_transaction_count++;
+
+        printf("\n********Transfered Point Successfully********\n");
+
+        show_user_dashboard();
 }
 
 /**
@@ -598,7 +676,7 @@ int get_user_by_id() {
     int user_index = -1;
     int s_user_id = -1;
 
-    printf("Enter User Id => ");
+    printf("Enter Id => ");
     scanf("%d", &s_user_id);
 
     for (int x = 0; x < 20; x++) {
@@ -610,10 +688,6 @@ int get_user_by_id() {
 
     if (user_index == -1) {
         printf("\n*** Sorry User Not Found ****\n");
-    }else {
-        printf("\n**** User Found! ****\n");
-        printf("User Name => %s\n", users[user_index].name);
-        printf("User Email => %s\n", users[user_index].email);
     }
 
     return user_index;
@@ -628,7 +702,7 @@ int get_user_by_email() {
     int user_index = -1;
     char s_user_email[50];
 
-    printf("Enter User Email => ");
+    printf("Enter Email => ");
     scanf(" %[^\n]", &s_user_email[0]);
 
     for (int x = 0; x < 20; x++) {
@@ -643,12 +717,7 @@ int get_user_by_email() {
 
     if (user_index == -1) {
         printf("\n*** Sorry User Not Found ****\n");
-    }else {
-        printf("\n**** User Found! ****\n");
-        printf("User Name => %s\n", users[user_index].name);
-        printf("User Email => %s\n", users[user_index].email);
     }
-
     return user_index;
 }
 
