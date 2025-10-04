@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.1-reference.c" "CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o" "gcc" "CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o.d"
-  "/home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.2-passbypionter.c" "CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o" "gcc" "CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o.d"
+  "/home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c" "CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o" "gcc" "CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o.d"
   "" "DDSA" "gcc" "CMakeFiles/DDSA.dir/link.d"
   )
 

@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/377/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/377/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -72,48 +72,32 @@ include CMakeFiles/DDSA.dir/flags.make
 CMakeFiles/DDSA.dir/codegen:
 .PHONY : CMakeFiles/DDSA.dir/codegen
 
-CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o: CMakeFiles/DDSA.dir/flags.make
-CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.1-reference.c
-CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o -MF CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o.d -o CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.1-reference.c
+CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: CMakeFiles/DDSA.dir/flags.make
+CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c
+CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o -MF CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o.d -o CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c
 
-CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.1-reference.c > CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.i
+CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c > CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i
 
-CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.1-reference.c -o CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.s
-
-CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o: CMakeFiles/DDSA.dir/flags.make
-CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.2-passbypionter.c
-CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o -MF CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o.d -o CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.2-passbypionter.c
-
-CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.2-passbypionter.c > CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.i
-
-CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/9-Day/9.2-passbypionter.c -o CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.s
+CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.1-IDS-update-email-validation.c -o CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s
 
 # Object files for target DDSA
 DDSA_OBJECTS = \
-"CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o" \
-"CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o"
+"CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o"
 
 # External object files for target DDSA
 DDSA_EXTERNAL_OBJECTS =
 
-DDSA: CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o
-DDSA: CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o
+DDSA: CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o
 DDSA: CMakeFiles/DDSA.dir/build.make
 DDSA: CMakeFiles/DDSA.dir/compiler_depend.ts
 DDSA: CMakeFiles/DDSA.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable DDSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable DDSA"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DDSA.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

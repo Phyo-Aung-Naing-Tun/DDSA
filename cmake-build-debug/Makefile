@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/377/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/377/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/snap/clion/377/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/385/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/snap/clion/377/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/385/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -136,53 +136,29 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
 .PHONY : DDSA/fast
 
-9-Day/9.1-reference.o: 9-Day/9.1-reference.c.o
-.PHONY : 9-Day/9.1-reference.o
+10-Day/10.1-IDS-update-email-validation.o: 10-Day/10.1-IDS-update-email-validation.c.o
+.PHONY : 10-Day/10.1-IDS-update-email-validation.o
 
 # target to build an object file
-9-Day/9.1-reference.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o
-.PHONY : 9-Day/9.1-reference.c.o
+10-Day/10.1-IDS-update-email-validation.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o
+.PHONY : 10-Day/10.1-IDS-update-email-validation.c.o
 
-9-Day/9.1-reference.i: 9-Day/9.1-reference.c.i
-.PHONY : 9-Day/9.1-reference.i
-
-# target to preprocess a source file
-9-Day/9.1-reference.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.i
-.PHONY : 9-Day/9.1-reference.c.i
-
-9-Day/9.1-reference.s: 9-Day/9.1-reference.c.s
-.PHONY : 9-Day/9.1-reference.s
-
-# target to generate assembly for a file
-9-Day/9.1-reference.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.s
-.PHONY : 9-Day/9.1-reference.c.s
-
-9-Day/9.2-passbypionter.o: 9-Day/9.2-passbypionter.c.o
-.PHONY : 9-Day/9.2-passbypionter.o
-
-# target to build an object file
-9-Day/9.2-passbypionter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o
-.PHONY : 9-Day/9.2-passbypionter.c.o
-
-9-Day/9.2-passbypionter.i: 9-Day/9.2-passbypionter.c.i
-.PHONY : 9-Day/9.2-passbypionter.i
+10-Day/10.1-IDS-update-email-validation.i: 10-Day/10.1-IDS-update-email-validation.c.i
+.PHONY : 10-Day/10.1-IDS-update-email-validation.i
 
 # target to preprocess a source file
-9-Day/9.2-passbypionter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.i
-.PHONY : 9-Day/9.2-passbypionter.c.i
+10-Day/10.1-IDS-update-email-validation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.i
+.PHONY : 10-Day/10.1-IDS-update-email-validation.c.i
 
-9-Day/9.2-passbypionter.s: 9-Day/9.2-passbypionter.c.s
-.PHONY : 9-Day/9.2-passbypionter.s
+10-Day/10.1-IDS-update-email-validation.s: 10-Day/10.1-IDS-update-email-validation.c.s
+.PHONY : 10-Day/10.1-IDS-update-email-validation.s
 
 # target to generate assembly for a file
-9-Day/9.2-passbypionter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.s
-.PHONY : 9-Day/9.2-passbypionter.c.s
+10-Day/10.1-IDS-update-email-validation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.s
+.PHONY : 10-Day/10.1-IDS-update-email-validation.c.s
 
 # Help Target
 help:
@@ -194,12 +170,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DDSA"
-	@echo "... 9-Day/9.1-reference.o"
-	@echo "... 9-Day/9.1-reference.i"
-	@echo "... 9-Day/9.1-reference.s"
-	@echo "... 9-Day/9.2-passbypionter.o"
-	@echo "... 9-Day/9.2-passbypionter.i"
-	@echo "... 9-Day/9.2-passbypionter.s"
+	@echo "... 10-Day/10.1-IDS-update-email-validation.o"
+	@echo "... 10-Day/10.1-IDS-update-email-validation.i"
+	@echo "... 10-Day/10.1-IDS-update-email-validation.s"
 .PHONY : help
 
 

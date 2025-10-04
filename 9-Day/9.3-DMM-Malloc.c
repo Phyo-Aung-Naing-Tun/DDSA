@@ -11,7 +11,7 @@ int main() {
     int *arr;
     int n = 5;
 
-    *arr = (int*)malloc( n * sizeof(int));
+    arr = (int*)malloc( n * sizeof(int));
 
     for (int x = 0; x < n; x++) {
         arr[x] = 100 + x;
@@ -20,6 +20,8 @@ int main() {
     for (int x = 0; x < n; x++) {
         printf(" Value of arr is %d\n", arr[x]);
     }
+
+    free(arr);
 
 
 

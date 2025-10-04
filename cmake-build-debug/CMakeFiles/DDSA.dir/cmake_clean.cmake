@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DDSA.dir/link.d"
-  "CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o"
-  "CMakeFiles/DDSA.dir/9-Day/9.1-reference.c.o.d"
-  "CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o"
-  "CMakeFiles/DDSA.dir/9-Day/9.2-passbypionter.c.o.d"
+  "CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o"
+  "CMakeFiles/DDSA.dir/10-Day/10.1-IDS-update-email-validation.c.o.d"
   "DDSA"
   "DDSA.pdb"
 )
