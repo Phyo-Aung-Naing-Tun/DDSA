@@ -64,6 +64,8 @@ void logout();
 
 void transfer_point();
 
+void show_user_point_transactions();
+
 /**
  * End After Login
  */
@@ -84,7 +86,7 @@ struct PointTransactionDb {
     int user_id;
     int related_id;
     int amount;
-    char type[2]; //in or out
+    char type[4]; //in or out
     char remark[50];
 };
 
@@ -101,6 +103,8 @@ int g_login_user_id = -1;
 int g_login_tried_count = 0;
 int g_max_allowed_login_tried_count = 3;
 int g_point_transaction_count = 0;
+char g_transaction_type_in[4] = {'i','n'};
+char g_transaction_type_out[4] = {'o','u','t'};
 
 /**
  * End Global Variables
@@ -319,7 +323,7 @@ int validate_password(char password[50]) {
         is_include_special_character == 1) {
         is_valid = 1;
     } else {
-        printf("\n*********Your Email Is Invalid!************.\n");
+        printf("\n*********Your Password Is Invalid!************.\n");
     }
 
     return is_valid;
@@ -375,7 +379,7 @@ void show_user_dashboard() {
     printf("********* Welcome %s ********\n", users[g_login_user_id].name);
     printf("Enter 1 To See Your Information\nEnter 2 To Logout\n");
     printf("Enter 3 To Update Your Information\nEnter 4 To Transfer Point\n");
-    printf("Enter 5 To Exit Program\n");
+    printf("Enter 5 To See Point Transactions\n");
     printf("Enter Here => ");
 
     scanf("%d", &user_option);
@@ -389,7 +393,7 @@ void show_user_dashboard() {
     } else if (user_option == 4) {
         transfer_point();
     }  else if (user_option == 5) {
-        exit(0);
+        show_user_point_transactions();
     } else {
         printf("Wrong Choice !\n");
         show_user_dashboard();
@@ -524,8 +528,7 @@ void transfer_point() {
     int available_point =  users[g_login_user_id].point;
     int to_transfer_point = 0;
     char remark[50];
-    char type_in[2] = {'i','n'};
-    char type_out[3] = {'o','u','t'};
+
 
     printf("\n***** Transfer Your Point ****\n");
     printf("You have %d point.\n", available_point);
@@ -575,7 +578,7 @@ void transfer_point() {
         point_transactions[g_point_transaction_count].user_id = users[g_login_user_id].id;
         point_transactions[g_point_transaction_count].related_id = users[target_user_index].id;
         point_transactions[g_point_transaction_count].amount = to_transfer_point;
-        copy_two_char_array(point_transactions[g_point_transaction_count].type,type_out);
+        copy_two_char_array(point_transactions[g_point_transaction_count].type,g_transaction_type_out);
         copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
 
         g_point_transaction_count++;
@@ -585,7 +588,7 @@ void transfer_point() {
         point_transactions[g_point_transaction_count].user_id = users[target_user_index].id;
         point_transactions[g_point_transaction_count].related_id = users[g_login_user_id].id;
         point_transactions[g_point_transaction_count].amount = to_transfer_point;
-        copy_two_char_array(point_transactions[g_point_transaction_count].type,type_in);
+        copy_two_char_array(point_transactions[g_point_transaction_count].type,g_transaction_type_in);
         copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
 
         g_point_transaction_count++;
@@ -593,6 +596,27 @@ void transfer_point() {
         printf("\n********Transfered Point Successfully********\n");
 
         show_user_dashboard();
+}
+
+void show_user_point_transactions() {
+    printf("\n**** Here Your Point Transactions *****\n");
+    printf("Your Points => %d\n\n", users[g_login_user_id].point);
+    printf("-----------------------------------------------\n");
+
+    for (int x = 0; x < g_point_transaction_count; x++ ) {
+        if (point_transactions[x].user_id == g_login_user_id) {
+            int related_id = point_transactions[x].related_id;
+            printf("Amount => %d\n",point_transactions[x].amount);
+            printf("Type => %s\n",point_transactions[x].type);
+            printf("Related Name => %s\n",users[related_id].name);
+            printf("Related Email => %s\n",users[related_id].email);
+            printf("Reason => %s\n",point_transactions[x].remark);
+            printf("-----------------------------------------------\n");
+        }
+    }
+
+    show_user_dashboard();
+
 }
 
 /**
