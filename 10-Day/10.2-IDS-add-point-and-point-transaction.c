@@ -86,6 +86,8 @@ struct PointTransactionDb {
     int user_id;
     int related_id;
     int amount;
+    int before_amount;
+    int after_amount;
     char type[4]; //in or out
     char remark[50];
 };
@@ -570,16 +572,17 @@ void transfer_point() {
         printf("Enter Remark => ");
         scanf(" %[^\n]",&remark[0]);
 
-        users[g_login_user_id].point = available_point - to_transfer_point;
-        users[target_user_index].point = users[target_user_index].point + to_transfer_point;
-
         //record for sender
         point_transactions[g_point_transaction_count].id = g_point_transaction_count;
         point_transactions[g_point_transaction_count].user_id = users[g_login_user_id].id;
         point_transactions[g_point_transaction_count].related_id = users[target_user_index].id;
         point_transactions[g_point_transaction_count].amount = to_transfer_point;
+        point_transactions[g_point_transaction_count].before_amount = available_point;
+        point_transactions[g_point_transaction_count].after_amount = available_point - to_transfer_point;
         copy_two_char_array(point_transactions[g_point_transaction_count].type,g_transaction_type_out);
         copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
+
+        users[g_login_user_id].point = available_point - to_transfer_point;
 
         g_point_transaction_count++;
 
@@ -588,8 +591,13 @@ void transfer_point() {
         point_transactions[g_point_transaction_count].user_id = users[target_user_index].id;
         point_transactions[g_point_transaction_count].related_id = users[g_login_user_id].id;
         point_transactions[g_point_transaction_count].amount = to_transfer_point;
+        point_transactions[g_point_transaction_count].before_amount = users[target_user_index].point;
+        point_transactions[g_point_transaction_count].after_amount = users[target_user_index].point + to_transfer_point;
         copy_two_char_array(point_transactions[g_point_transaction_count].type,g_transaction_type_in);
         copy_two_char_array(point_transactions[g_point_transaction_count].remark,remark);
+
+        users[target_user_index].point = users[target_user_index].point + to_transfer_point;
+
 
         g_point_transaction_count++;
 
@@ -599,25 +607,39 @@ void transfer_point() {
 }
 
 void show_user_point_transactions() {
-    printf("\n**** Here Your Point Transactions *****\n");
+    printf("\n*********** Your Point Transactions ***********\n");
     printf("Your Points => %d\n\n", users[g_login_user_id].point);
-    printf("-----------------------------------------------\n");
 
-    for (int x = 0; x < g_point_transaction_count; x++ ) {
+    // Print table header
+    printf("-----------------------------------------------------------------------------------------------------------\n");
+    printf("%-5s %-5s %-10s %-10s %-10s %-10s %-15s %-25s %-20s\n",
+            "No", "ID", "Type", "Amount", "Before", "After", "Related Name", "Related Email", "Remark");
+    printf("-----------------------------------------------------------------------------------------------------------\n");
+
+    for (int x = 0; x < g_point_transaction_count; x++) {
+        int number =  1;
         if (point_transactions[x].user_id == g_login_user_id) {
             int related_id = point_transactions[x].related_id;
-            printf("Amount => %d\n",point_transactions[x].amount);
-            printf("Type => %s\n",point_transactions[x].type);
-            printf("Related Name => %s\n",users[related_id].name);
-            printf("Related Email => %s\n",users[related_id].email);
-            printf("Reason => %s\n",point_transactions[x].remark);
-            printf("-----------------------------------------------\n");
+
+            printf("%5d %-5d %-10s %-10d %-10d %-10d %-15s %-25s %-20s\n",
+                    number,
+                   point_transactions[x].id,
+                   point_transactions[x].type,
+                   point_transactions[x].amount,
+                   point_transactions[x].before_amount,
+                   point_transactions[x].after_amount,
+                   users[related_id].name,
+                   users[related_id].email,
+                   point_transactions[x].remark);
+            number++;
         }
     }
 
-    show_user_dashboard();
+    printf("-----------------------------------------------------------------------------------------------------------\n");
 
+    show_user_dashboard();
 }
+
 
 /**
  * End After Authenticated
