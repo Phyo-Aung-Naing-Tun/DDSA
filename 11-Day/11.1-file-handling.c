@@ -44,6 +44,7 @@ int main() {
         while ((c = fgetc(fptr)) != EOF) {
             printf("%c", c);
         }
+
         fclose(fptr);
     }
 
