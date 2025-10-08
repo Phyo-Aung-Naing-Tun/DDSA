@@ -3,4 +3,4 @@ project(DDSA C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(DDSA 10-Day/10.2-IDS-add-point-and-point-transaction.c)
+add_executable(DDSA 11-Day/11.1-file-handling.c)

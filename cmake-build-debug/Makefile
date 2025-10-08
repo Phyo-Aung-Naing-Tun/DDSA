@@ -160,6 +160,30 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.s
 .PHONY : 10-Day/10.2-IDS-add-point-and-point-transaction.c.s
 
+11-Day/11.1-file-handling.o: 11-Day/11.1-file-handling.c.o
+.PHONY : 11-Day/11.1-file-handling.o
+
+# target to build an object file
+11-Day/11.1-file-handling.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.o
+.PHONY : 11-Day/11.1-file-handling.c.o
+
+11-Day/11.1-file-handling.i: 11-Day/11.1-file-handling.c.i
+.PHONY : 11-Day/11.1-file-handling.i
+
+# target to preprocess a source file
+11-Day/11.1-file-handling.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.i
+.PHONY : 11-Day/11.1-file-handling.c.i
+
+11-Day/11.1-file-handling.s: 11-Day/11.1-file-handling.c.s
+.PHONY : 11-Day/11.1-file-handling.s
+
+# target to generate assembly for a file
+11-Day/11.1-file-handling.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.s
+.PHONY : 11-Day/11.1-file-handling.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -173,6 +197,9 @@ help:
 	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.o"
 	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.i"
 	@echo "... 10-Day/10.2-IDS-add-point-and-point-transaction.s"
+	@echo "... 11-Day/11.1-file-handling.o"
+	@echo "... 11-Day/11.1-file-handling.i"
+	@echo "... 11-Day/11.1-file-handling.s"
 .PHONY : help
 
 
