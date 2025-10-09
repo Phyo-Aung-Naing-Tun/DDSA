@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/phyo-aung-naing-tun/Documents/DDSA/10-Day/10.2-IDS-add-point-and-point-transaction.c" "CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o" "gcc" "CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o.d"
-  "/home/phyo-aung-naing-tun/Documents/DDSA/11-Day/11.1-file-handling.c" "CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.o" "gcc" "CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.o.d"
+  "/home/phyo-aung-naing-tun/Documents/DDSA/11-Day/11.2-file-handling-fprintf-fscanf.c" "CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.o" "gcc" "CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.o.d"
   "" "DDSA" "gcc" "CMakeFiles/DDSA.dir/link.d"
   )
 

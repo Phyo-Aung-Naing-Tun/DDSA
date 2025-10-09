@@ -49,8 +49,7 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -79,8 +78,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -89,13 +87,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "10-Day/10.2-IDS-add-point-and-point-transaction.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "11-Day/11.1-file-handling.c",
+			"path" : "11-Day/11.2-file-handling-fprintf-fscanf.c",
 			"sourceGroupIndex" : 0
 		}
 	],

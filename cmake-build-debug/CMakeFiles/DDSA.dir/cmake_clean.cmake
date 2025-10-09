@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DDSA.dir/link.d"
-  "CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o"
-  "CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o.d"
-  "CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.o"
-  "CMakeFiles/DDSA.dir/11-Day/11.1-file-handling.c.o.d"
+  "CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.o"
+  "CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.o.d"
   "DDSA"
   "DDSA.pdb"
 )
