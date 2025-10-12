@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DDSA.dir/link.d"
-  "CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o"
-  "CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o.d"
+  "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o"
+  "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o.d"
   "DDSA"
   "DDSA.pdb"
 )

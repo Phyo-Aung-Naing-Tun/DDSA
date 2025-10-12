@@ -136,29 +136,29 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
 .PHONY : DDSA/fast
 
-11-Day/11.3.file-handling-fwrite-fread-with-binary.o: 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.o
+12-Day/12.1-Assignment-6.o: 12-Day/12.1-Assignment-6.c.o
+.PHONY : 12-Day/12.1-Assignment-6.o
 
 # target to build an object file
-11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o
+12-Day/12.1-Assignment-6.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o
+.PHONY : 12-Day/12.1-Assignment-6.c.o
 
-11-Day/11.3.file-handling-fwrite-fread-with-binary.i: 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.i
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.i
+12-Day/12.1-Assignment-6.i: 12-Day/12.1-Assignment-6.c.i
+.PHONY : 12-Day/12.1-Assignment-6.i
 
 # target to preprocess a source file
-11-Day/11.3.file-handling-fwrite-fread-with-binary.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.i
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.i
+12-Day/12.1-Assignment-6.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.i
+.PHONY : 12-Day/12.1-Assignment-6.c.i
 
-11-Day/11.3.file-handling-fwrite-fread-with-binary.s: 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.s
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.s
+12-Day/12.1-Assignment-6.s: 12-Day/12.1-Assignment-6.c.s
+.PHONY : 12-Day/12.1-Assignment-6.s
 
 # target to generate assembly for a file
-11-Day/11.3.file-handling-fwrite-fread-with-binary.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.s
-.PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.s
+12-Day/12.1-Assignment-6.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.s
+.PHONY : 12-Day/12.1-Assignment-6.c.s
 
 # Help Target
 help:
@@ -170,9 +170,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DDSA"
-	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.o"
-	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.i"
-	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.s"
+	@echo "... 12-Day/12.1-Assignment-6.o"
+	@echo "... 12-Day/12.1-Assignment-6.i"
+	@echo "... 12-Day/12.1-Assignment-6.s"
 .PHONY : help
 
 

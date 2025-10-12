@@ -2,7 +2,7 @@ DDSA: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
-  CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o \
+  CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
@@ -31,7 +31,7 @@ DDSA: \
 
 /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
 
-CMakeFiles/DDSA.dir/10-Day/10.2-IDS-add-point-and-point-transaction.c.o:
+CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
 

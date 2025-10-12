@@ -3,4 +3,4 @@ project(DDSA C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(DDSA 11-Day/11.3.file-handling-fwrite-fread-with-binary.c)
+add_executable(DDSA 12-Day/12.1-Assignment-6.c)

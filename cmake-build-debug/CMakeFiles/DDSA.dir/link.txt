@@ -1,1 +1,1 @@
-/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/DDSA.dir/link.d "CMakeFiles/DDSA.dir/11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o" -o DDSA
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/DDSA.dir/link.d "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o" -o DDSA
