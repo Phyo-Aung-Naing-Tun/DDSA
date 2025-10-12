@@ -85,12 +85,12 @@ clean: CMakeFiles/DDSA.dir/clean
 CMakeFiles/DDSA.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target DDSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target DDSA"
 .PHONY : CMakeFiles/DDSA.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DDSA.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DDSA.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/DDSA.dir/rule
@@ -102,7 +102,7 @@ DDSA: CMakeFiles/DDSA.dir/rule
 # codegen rule for target.
 CMakeFiles/DDSA.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Finished codegen for target DDSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=1,2 "Finished codegen for target DDSA"
 .PHONY : CMakeFiles/DDSA.dir/codegen
 
 # clean rule for target.

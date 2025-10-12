@@ -136,30 +136,6 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
 .PHONY : DDSA/fast
 
-11-Day/11.2-file-handling-fprintf-fscanf.o: 11-Day/11.2-file-handling-fprintf-fscanf.c.o
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.o
-
-# target to build an object file
-11-Day/11.2-file-handling-fprintf-fscanf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.o
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.c.o
-
-11-Day/11.2-file-handling-fprintf-fscanf.i: 11-Day/11.2-file-handling-fprintf-fscanf.c.i
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.i
-
-# target to preprocess a source file
-11-Day/11.2-file-handling-fprintf-fscanf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.i
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.c.i
-
-11-Day/11.2-file-handling-fprintf-fscanf.s: 11-Day/11.2-file-handling-fprintf-fscanf.c.s
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.s
-
-# target to generate assembly for a file
-11-Day/11.2-file-handling-fprintf-fscanf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/11-Day/11.2-file-handling-fprintf-fscanf.c.s
-.PHONY : 11-Day/11.2-file-handling-fprintf-fscanf.c.s
-
 11-Day/11.3.file-handling-fwrite-fread-with-binary.o: 11-Day/11.3.file-handling-fwrite-fread-with-binary.c.o
 .PHONY : 11-Day/11.3.file-handling-fwrite-fread-with-binary.o
 
@@ -194,9 +170,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DDSA"
-	@echo "... 11-Day/11.2-file-handling-fprintf-fscanf.o"
-	@echo "... 11-Day/11.2-file-handling-fprintf-fscanf.i"
-	@echo "... 11-Day/11.2-file-handling-fprintf-fscanf.s"
 	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.o"
 	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.i"
 	@echo "... 11-Day/11.3.file-handling-fwrite-fread-with-binary.s"
