@@ -30,7 +30,7 @@ void sync_data();
  */
 void copy_two_char_array(char target[50], char data[50]);
 
-int check_two_char_array();
+int check_two_char_array(char target[50], char data[50]);
 
 int get_char_array_count(char data[50]);
 
@@ -90,6 +90,7 @@ int main() {
 * Functions Start .............................
 */
 void menu() {
+
     int option = -1;
     printf("\nEnter 1 to Register\nEnter 2 to Login\nEnter 3 To Exit\n");
     printf("Enter Here => ");
@@ -146,20 +147,6 @@ void registration() {
 
    printf("*********Registered Successfully*********\n");
 
-
-   //  printf("\n*********Checking The Registration Data*********\n");
-   //
-   // for (int x = 0; x < g_user_count; x++) {
-   //     printf("\nUser Id is => %d\n", users[x].id);
-   //     printf("User Name is => %s\n", users[x].name);
-   //     printf("User Email is => %s\n", users[x].email);
-   //     printf("User Phone is => %d\n", users[x].phone);
-   //     printf("User Postcode is => %d\n", users[x].postcode);
-   //     printf("User Point is => %d\n", users[x].point);
-   //     printf("User Address is => %s\n", users[x].address);
-   //     printf("User Role is => %s\n", users[x].role);
-   // }
-
 };
 
 void login() {
@@ -191,15 +178,14 @@ void sync_data() {
     }
     int index = 0;
     while ( fread(&users[index],sizeof(DB),1,fptr) == 1) {
-        printf("=");
-        // printf("\nUser Id is => %d\n", users[index].id);
-        // printf("User Name is => %s\n", users[index].name);
-        // printf("User Email is => %s\n", users[index].email);
-        // printf("User Phone is => %d\n", users[index].phone);
-        // printf("User Postcode is => %d\n", users[index].postcode);
-        // printf("User Point is => %d\n", users[index].point);
-        // printf("User Address is => %s\n", users[index].address);
-        // printf("User Role is => %s\n", users[index].role);
+        printf("\nUser Id is => %d\n", users[index].id);
+        printf("User Name is => %s\n", users[index].name);
+        printf("User Email is => %s\n", users[index].email);
+        printf("User Phone is => %d\n", users[index].phone);
+        printf("User Postcode is => %d\n", users[index].postcode);
+        printf("User Point is => %d\n", users[index].point);
+        printf("User Address is => %s\n", users[index].address);
+        printf("User Role is => %s\n", users[index].role);
         index++;
     }
     g_user_count = index;
@@ -226,7 +212,23 @@ void copy_two_char_array(char target[50], char data[50]) {
     }
 }
 
-int check_two_char_array(char target[50]) {
+int check_two_char_array(char target[50], char data[50]) {
+
+    int targetCount = get_char_array_count(target);
+    int dataCount = get_char_array_count(data);
+
+    if (targetCount != dataCount) {
+        return 0;
+    }
+    for (int x = 0; x < 50; x++) {
+        if (target[x] == '\0') {
+            break;
+        }
+        if (target[x] != data[x]) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 int get_char_array_count(char data[50]) {
