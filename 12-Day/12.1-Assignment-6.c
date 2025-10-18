@@ -21,6 +21,10 @@ void save_data();
 
 void sync_data();
 
+int validate_phone(int phone);
+
+int validate_email(char email[50]);
+
 /**
  * Functions End ...............................
  */
@@ -28,11 +32,23 @@ void sync_data();
 /**
  * Helpers Start .............................
  */
+int check_phone_duplication(int phone);
+
+int check_email_duplication(char email[50]);
+
 void copy_two_char_array(char target[50], char data[50]);
 
 int check_two_char_array(char target[50], char data[50]);
 
 int get_char_array_count(char data[50]);
+
+int is_number(char data);
+
+int is_small_letter(char data);
+
+int is_capital_letter(char data);
+
+int is_special_character(char data);
 
 /**
  * Helpers End ...............................
@@ -114,6 +130,8 @@ void menu() {
 void registration() {
     printf("*********Registration Form*********\n");
 
+    int is_valid_email = 0;
+    int is_valid_phone = 0;
     char r_name[20];
     char r_email[20];
     int r_phone;
@@ -123,11 +141,17 @@ void registration() {
     printf("Enter User Name => ");
     scanf(" %[^\n]", &r_name[0]);
 
-    printf("Enter User Email => ");
-    scanf(" %[^\n]", &r_email[0]);
+    while (!is_valid_email) {
+        printf("Enter User Email => ");
+        scanf(" %[^\n]", &r_email[0]);
+        is_valid_email = validate_email(r_email);
+    }
 
-    printf("Enter User Phone => ");
-    scanf("%d", &r_phone);
+    while (!is_valid_phone) {
+        printf("Enter User Phone => ");
+        scanf("%d", &r_phone);
+        is_valid_phone = validate_phone(r_phone);
+    }
 
     printf("Enter User Postcode => ");
     scanf("%d", &r_postcode);
@@ -151,6 +175,7 @@ void registration() {
 
 void login() {
     printf("*********Login Form*********\n");
+
 }
 
 void save_data() {
@@ -194,6 +219,74 @@ void sync_data() {
 
 }
 
+int validate_phone(int phone) {
+
+    int is_phone_duplicate = check_phone_duplication(phone);
+
+    if (is_phone_duplicate) {
+        printf("\nPhone Number (%d) has been used!\n",phone);
+        return 0;
+    }
+    return 1;
+}
+
+
+/**
+ *  must be small letters
+ *  must not include special characters and spaces
+ *  numbers - 48 to 57
+ *  small letters - 97 to 122
+ *  must end with (@gmail.com,@apple.com,@yahoo.com)
+ *
+ * @param email
+ * @return int
+ */
+int validate_email(char email[50]) {
+    int size_of_email = get_char_array_count(email);
+    int is_email_duplicate = check_email_duplication(email);
+    int second_part_start_index = 0;
+
+    if (is_email_duplicate) {
+        printf("\nEmail (%s) has been used!\n", email);
+        return 0;
+    }
+
+    for (int x = 0; x < size_of_email; x++) {
+        if (email[x] == '@') {
+            second_part_start_index = x;
+            break;
+        }
+        if (!(is_number(email[x]) || is_small_letter(email[x]))) {
+            printf("\nEmail (%s) is invalid!\n", email);
+            return 0;
+        }
+    }
+
+    char gmail_symbol[11] = {'@','g','m','a','i','l','.','c','o','m'};
+    char apple_mail_symbol[11] = {'@','a','p','p','l','e','.','c','o','m'};
+    char yahoo_mail_symbol[11] = {'@','y','a','h','o','o','.','c','o','m'};
+    char second_part[20];
+    int index = 0;
+
+    for (int x = second_part_start_index; x < size_of_email; x++) {
+        if (email[x] == '\0') {
+            break;
+        }
+        second_part[index] = email[x];
+        index++;
+    }
+
+    int is_valid_gmail_symbol = check_two_char_array(gmail_symbol, second_part);
+    int is_valid_yahoo_mail_symbol = check_two_char_array(yahoo_mail_symbol,second_part);
+    int is_valid_apple_mail_symbol = check_two_char_array(apple_mail_symbol,second_part);
+
+    if (!(is_valid_gmail_symbol || is_valid_yahoo_mail_symbol || is_valid_apple_mail_symbol)) {
+        printf("\nEmail (%s) is invalid!\n", email);
+        return 0;
+    }
+    return 1;
+}
+
 /**
  * Functions End ...............................
  */
@@ -201,6 +294,25 @@ void sync_data() {
 /**
  * Helpers Start .............................
  */
+
+int check_phone_duplication(int phone) {
+    for (int x = 0; x < g_user_count; x++) {
+        if(users[x].phone == phone) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int check_email_duplication(char email[50]) {
+    for (int x = 0; x < g_user_count; x++) {
+        int is_same = check_two_char_array(users[x].email,email);
+        if(is_same) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 
 void copy_two_char_array(char target[50], char data[50]) {
@@ -240,6 +352,34 @@ int get_char_array_count(char data[50]) {
         size++;
     }
     return size;
+}
+
+int is_number(char data) {
+    if (data >= 48 && data <= 57) {
+        return 1;
+    }
+    return 0;
+}
+
+int is_small_letter(char data) {
+    if (data >= 97 && data <= 122) {
+        return 1;
+    }
+    return 0;
+}
+
+int is_capital_letter(char data) {
+    if (data >= 65 && data <= 90) {
+        return 1;
+    }
+    return 0;
+}
+
+int is_special_character(char data) {
+    if ((data >= 32 && data <= 47) || (data >= 58 && data <= 64) || (data >= 91 && data <= 96) || (data >= 123 && data <= 126)) {
+        return 1;
+    }
+    return 0;
 }
 
 /**
