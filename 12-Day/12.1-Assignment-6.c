@@ -25,6 +25,8 @@ int validate_phone(int phone);
 
 int validate_email(char email[50]);
 
+int validate_password(char password[20]);
+
 /**
  * Functions End ...............................
  */
@@ -71,6 +73,7 @@ typedef struct {
     char name[20];
     char email[20];
     int phone;
+    char password[20];
     int postcode;
     char address[50];
     int point;
@@ -132,6 +135,8 @@ void registration() {
 
     int is_valid_email = 0;
     int is_valid_phone = 0;
+    int is_valid_password = 0;
+    char r_password[20];
     char r_name[20];
     char r_email[20];
     int r_phone;
@@ -153,6 +158,12 @@ void registration() {
         is_valid_phone = validate_phone(r_phone);
     }
 
+    while (!is_valid_password) {
+        printf("Password Must Include at least One Small Letter\nOne Capital Letter\nOne Special Character and\nMust Be at least 6 Characters Long\nEnter User Password => ");
+        scanf(" %[^\n]", &r_password[0]);
+        is_valid_password = validate_password(r_password);
+    }
+
     printf("Enter User Postcode => ");
     scanf("%d", &r_postcode);
 
@@ -162,6 +173,7 @@ void registration() {
     users[g_user_count].id = g_user_count + 1;
     copy_two_char_array(users[g_user_count].name, r_name);
     copy_two_char_array(users[g_user_count].email, r_email);
+    copy_two_char_array(users[g_user_count].password, r_password);
     users[g_user_count].phone = r_phone;
     users[g_user_count].postcode = r_postcode;
     copy_two_char_array(users[g_user_count].address, r_address);
@@ -285,6 +297,45 @@ int validate_email(char email[50]) {
         return 0;
     }
     return 1;
+}
+
+/***
+ * min 6 char
+ * must include at least one capital Letter
+ * must include at least one number
+ * must include at least one small letter
+ * must include at least one special character
+ */
+int validate_password(char password[20]) {
+    int is_include_number = 0;
+    int is_include_capital_letter = 0;
+    int is_include_small_letter = 0;
+    int is_include_special_character = 0;
+    int size_of_password = get_char_array_count(password);
+
+    if (size_of_password < 6) {
+        printf("\nInvalid Password\n");
+        return 0;
+    }
+
+    for (int x = 0; x < size_of_password; x++) {
+        if (is_number(password[x])) {
+            is_include_number = 1;
+        }else if (is_small_letter(password[x])) {
+            is_include_small_letter = 1;
+        }else if (is_capital_letter(password[x])) {
+            is_include_capital_letter = 1;
+        }else if (is_special_character(password[x])) {
+            is_include_special_character = 1;
+        }
+    }
+
+    if (is_include_number && is_include_capital_letter && is_include_small_letter && is_include_special_character) {
+        return 1;
+    }
+
+    printf("\nInvalid Password\n");
+    return 0;
 }
 
 /**
