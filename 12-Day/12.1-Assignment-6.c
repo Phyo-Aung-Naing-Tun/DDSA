@@ -27,6 +27,8 @@ int validate_email(char email[50]);
 
 int validate_password(char password[20]);
 
+void show_user_dashboard();
+
 /**
  * Functions End ...............................
  */
@@ -92,6 +94,7 @@ const char G_USER_ROLE_USER[5] = "user";
 const char G_USER_ROLE_ADMIN[6] = "admin";
 
 int g_user_count = 0;
+int g_login_user_id = 0;
 int g_available_user_count = 10;
 int g_available_point_transaction_count = 100;
 /*
@@ -187,6 +190,39 @@ void registration() {
 
 void login() {
     printf("*********Login Form*********\n");
+    char l_email[20];
+    char l_password[20];
+    int is_success = 0;
+
+
+
+    printf("Enter Your Email => ");
+    scanf(" %[^\n]",&l_email[0]);
+
+    printf("Enter Your Password => ");
+    scanf(" %[^\n]",&l_password[0]);
+
+    for (int x = 0; x < g_user_count; x++) {
+         int is_email_exist = check_two_char_array(users[x].email,l_email);
+        if (is_email_exist) {
+            int is_password_exist = check_two_char_array(users[x].password, l_password);
+            if (is_password_exist) {
+                g_login_user_id = users[x].id;
+                is_success = 1;
+                break;
+            }
+        }
+
+    }
+
+    if (is_success) {
+        show_user_dashboard();
+    }else {
+        printf("Login Failed!\n");
+        menu();
+    }
+
+
 
 }
 
@@ -336,6 +372,11 @@ int validate_password(char password[20]) {
 
     printf("\nInvalid Password\n");
     return 0;
+}
+
+
+void show_user_dashboard() {
+    printf("\n****Welcome To IDS Delivery ****\n");
 }
 
 /**
