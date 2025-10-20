@@ -27,7 +27,11 @@ int validate_email(char email[50]);
 
 int validate_password(char password[20]);
 
-void show_user_dashboard();
+void show_dashboard();
+
+void user_dashboard(int login_user_index);
+
+void admin_dashboard(int login_user_index);
 
 /**
  * Functions End ...............................
@@ -53,6 +57,8 @@ int is_small_letter(char data);
 int is_capital_letter(char data);
 
 int is_special_character(char data);
+
+int get_auth_user_index();
 
 /**
  * Helpers End ...............................
@@ -216,7 +222,7 @@ void login() {
     }
 
     if (is_success) {
-        show_user_dashboard();
+        show_dashboard();
     }else {
         printf("Login Failed!\n");
         menu();
@@ -375,9 +381,25 @@ int validate_password(char password[20]) {
 }
 
 
-void show_user_dashboard() {
+void show_dashboard() {
     printf("\n****Welcome To IDS Delivery ****\n");
+    int user_index = get_auth_user_index();
+    if (check_two_char_array(G_USER_ROLE_USER,users[user_index].role)) {
+        user_dashboard(user_index);
+    }else {
+        admin_dashboard(user_index);
+    }
+
 }
+
+void user_dashboard(int login_user_index) {
+
+}
+
+void admin_dashboard(int login_user_index) {
+
+}
+
 
 /**
  * Functions End ...............................
@@ -472,6 +494,17 @@ int is_special_character(char data) {
         return 1;
     }
     return 0;
+}
+
+int get_auth_user_index() {
+    int login_user_index = -1;
+    for (int x = 0; x < g_user_count; x++) {
+        if (users[x].id == g_login_user_id) {
+            login_user_index = x;
+            break;
+        }
+    }
+    return login_user_index;
 }
 
 /**

@@ -52,7 +52,7 @@ int get_user_by_email();
  * Start After Login
  */
 
-void show_user_dashboard();
+void show_dashboard();
 
 void see_user_infos();
 
@@ -356,7 +356,7 @@ void login() {
     if (g_login_user_id > -1) {
         g_login_tried_count = 0;
         printf("\n**** Successfully Login ****\n");
-        show_user_dashboard();
+        show_dashboard();
     } else {
         if (g_login_tried_count < g_max_allowed_login_tried_count) {
             printf("\n**** Your Information Do Not Match. Please Type Again! ****\n");
@@ -376,7 +376,7 @@ void login() {
 /**
  * Start After Authenticated
  */
-void show_user_dashboard() {
+void show_dashboard() {
     int user_option = 0;
     printf("********* Welcome %s ********\n", users[g_login_user_id].name);
     printf("Enter 1 To See Your Information\nEnter 2 To Logout\n");
@@ -398,7 +398,7 @@ void show_user_dashboard() {
         show_user_point_transactions();
     } else {
         printf("Wrong Choice !\n");
-        show_user_dashboard();
+        show_dashboard();
     }
 }
 
@@ -416,7 +416,7 @@ void see_user_infos() {
     printf("Enter 1 to go back ===> ");
     scanf("%d", &go_back);
     if (go_back == 1) {
-        show_user_dashboard();
+        show_dashboard();
     } else {
         printf("Wrong Choice Enter 1 to go back ===> ");
         scanf("%d", &go_back);
@@ -499,7 +499,7 @@ void update_user_infos() {
             copy_two_char_array(users[g_login_user_id].address, new_char_data);
 
         } else if (option == 7) {
-            show_user_dashboard();
+            show_dashboard();
         } else {
             printf("Wrong Choice!\n");
             update_user_infos();
@@ -508,7 +508,7 @@ void update_user_infos() {
         see_user_infos();
     } else {
         printf("** Sorry Your Information Is Wrong!**\n");
-        show_user_dashboard();
+        show_dashboard();
     }
 }
 
@@ -547,7 +547,7 @@ void transfer_point() {
             if (option == 1) {
                 transfer_point();
             } else {
-                show_user_dashboard();
+                show_dashboard();
             }
         }
 
@@ -566,7 +566,7 @@ void transfer_point() {
                  printf("Enter amount to transfer => ");
                  scanf("%d",&to_transfer_point);
              }else {
-                 show_user_dashboard();
+                 show_dashboard();
              }
         }
         printf("Enter Remark => ");
@@ -603,7 +603,7 @@ void transfer_point() {
 
         printf("\n********Transfered Point Successfully********\n");
 
-        show_user_dashboard();
+        show_dashboard();
 }
 
 void show_user_point_transactions() {
@@ -637,7 +637,7 @@ void show_user_point_transactions() {
 
     printf("-----------------------------------------------------------------------------------------------------------\n");
 
-    show_user_dashboard();
+    show_dashboard();
 }
 
 
