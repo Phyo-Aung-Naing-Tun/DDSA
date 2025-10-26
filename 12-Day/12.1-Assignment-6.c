@@ -39,6 +39,8 @@ int confirm_password(int login_user_index);
 
 void edit_user_info(int login_user_index);
 
+int transfer_point(int login_user_index);
+
 
 /**
  * Functions End ...............................
@@ -66,6 +68,8 @@ int is_capital_letter(char data);
 int is_special_character(char data);
 
 int get_auth_user_index();
+
+int get_user_index_by_email();
 
 /**
  * Helpers End ...............................
@@ -428,7 +432,7 @@ void user_dashboard(int login_user_index) {
             edit_user_info(login_user_index);
             break;
         case 3:
-            printf("********* Transfer Your Point *******\n");
+            transfer_point(login_user_index);
             break;
         case 4:
             printf("********** Bye Bye **********\n");
@@ -573,6 +577,47 @@ int confirm_password(int login_user_index) {
     return 0;
 }
 
+int transfer_point(int login_user_index) {
+
+    int remaining_point = users[login_user_index].point;
+    printf("\n********* Transfer Your Point *******\n");
+    printf("Your Remaining Points => %d\n", remaining_point);
+    printf("-----------------------------------\n");
+
+    printf("********** Enter Receiver Email ***********\n");
+    int receiver_index = get_user_index_by_email();
+
+    if (receiver_index == -1 || check_two_char_array(G_USER_ROLE_ADMIN, users[receiver_index].role)) {
+        printf("********** Receiver Not Found! Please Try Again **********\n");
+        transfer_point(login_user_index);
+    }
+
+    printf("\n********** Receiver Info ***********\n");
+    printf("Name => %s\n", users[receiver_index].name);
+    printf("Phone => %d\n", users[receiver_index].phone);
+    printf("Email => %s\n", users[receiver_index].email);
+    printf("-------------------------------------------------\n");
+
+    int enough_point = 0;
+    int amount = 0;
+    while (!enough_point) {
+        printf("Enter Amount => ");
+        scanf("%d", &amount);
+        if (amount < remaining_point) {
+            enough_point = 1;
+        }else {
+            printf("*********** You Don't Have Enough Point!************\n");
+        }
+    }
+
+    users[receiver_index].point = users[receiver_index].point + amount;
+    users[login_user_index].point = remaining_point - amount;
+
+
+    printf("****************** Transfered Point Successfully ***************\n");
+
+}
+
 /**
  * Functions End ...............................
  */
@@ -677,6 +722,22 @@ int get_auth_user_index() {
         }
     }
     return login_user_index;
+}
+
+int get_user_index_by_email() {
+    char email[20];
+    int user_index = -1;
+    printf("Enter Email => ");
+    scanf(" %[^\n]", &email[0]);
+
+    for (int x = 0; x < g_user_count; x++) {
+        if (check_two_char_array(users[x].email, email)) {
+            user_index = x;
+            break;
+        }
+    }
+
+    return user_index;
 }
 
 /**
