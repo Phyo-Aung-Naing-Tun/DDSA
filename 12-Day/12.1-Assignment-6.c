@@ -148,6 +148,7 @@ void menu() {
         exit(1);
     } else {
         printf("******Wrong Option*******\n");
+        option = -1;
         menu();
     }
 }
@@ -200,7 +201,7 @@ void registration() {
     users[g_user_count].phone = r_phone;
     users[g_user_count].postcode = r_postcode;
     copy_two_char_array(users[g_user_count].address, r_address);
-    copy_two_char_array(users[g_user_count].role, G_USER_ROLE_USER);
+    copy_two_char_array(users[g_user_count].role,G_USER_ROLE_USER);
     users[g_user_count].point = G_USER_INITIAL_POINT;
     copy_two_char_array(users[g_user_count].status, G_STATUS_ACTIVE);
     g_user_count++;
@@ -418,7 +419,7 @@ void show_dashboard() {
 void user_dashboard(int login_user_index) {
     printf("\n Welcome User (%s) \n", users[login_user_index].name);
     int option = 0;
-    printf("Enter 1 To See Your Info. Enter 2 To Edit Your Info.\nEnter 3 To Transfer Points. Enter 4 To Logout\n");
+    printf("Enter 1 To See Your Info.\nEnter 2 To Edit Your Info.\nEnter 3 To Transfer Points.\nEnter 4 To Logout\n");
     printf("Enter Here => ");
     scanf("%d", &option);
     switch (option) {
@@ -447,7 +448,7 @@ void user_dashboard(int login_user_index) {
 void admin_dashboard(int login_user_index) {
     printf("\n Welcome Admin (%s) \n", users[login_user_index].name);
     int option = 0;
-    printf("Enter 1 To See Your Info. Enter 2 To Edit Your Info.\nEnter 3 To Manage Users. Enter 4 To Logout\n");
+    printf("Enter 1 To See Your Info.\nEnter 2 To Edit Your Info.\nEnter 3 To Manage Users.\nEnter 4 To Logout\n");
     printf("Enter Here => ");
     scanf("%d", &option);
 
@@ -592,29 +593,50 @@ int transfer_point(int login_user_index) {
         transfer_point(login_user_index);
     }
 
+    if (receiver_index == login_user_index) {
+        printf("********** You Can't Transfer Yourself! Please Try Again **********\n");
+        transfer_point(login_user_index);
+    }
+
     printf("\n********** Receiver Info ***********\n");
     printf("Name => %s\n", users[receiver_index].name);
     printf("Phone => %d\n", users[receiver_index].phone);
     printf("Email => %s\n", users[receiver_index].email);
     printf("-------------------------------------------------\n");
 
-    int enough_point = 0;
-    int amount = 0;
-    while (!enough_point) {
-        printf("Enter Amount => ");
-        scanf("%d", &amount);
-        if (amount < remaining_point) {
-            enough_point = 1;
-        }else {
-            printf("*********** You Don't Have Enough Point!************\n");
+    int confirm_option = 0;
+    printf("Enter 1 To Continue\nEnter 2 To Go Back\nEnter 3 To Search Receiver\n");
+    printf("Enter Here => ");
+    scanf("%d", &confirm_option);
+
+    if (confirm_option == 2) {
+        show_dashboard();
+    }else if (confirm_option == 3) {
+        transfer_point(login_user_index);
+    }else if (confirm_option == 1) {
+        int enough_point = 0;
+        int amount = 0;
+        while (!enough_point) {
+            printf("Enter Amount => ");
+            scanf("%d", &amount);
+            if (amount < remaining_point) {
+                enough_point = 1;
+            }else {
+                printf("*********** You Don't Have Enough Point!************\n");
+            }
         }
+
+        users[receiver_index].point = users[receiver_index].point + amount;
+        users[login_user_index].point = remaining_point - amount;
+
+
+        printf("****************** Transfered Point Successfully ***************\n");
+        show_dashboard();
+
+    }else {
+        printf("************* Wrong Option! Try Again *****************\n");
+        transfer_point(login_user_index);
     }
-
-    users[receiver_index].point = users[receiver_index].point + amount;
-    users[login_user_index].point = remaining_point - amount;
-
-
-    printf("****************** Transfered Point Successfully ***************\n");
 
 }
 
@@ -647,8 +669,14 @@ int check_email_duplication(char email[50]) {
 
 
 void copy_two_char_array(char target[50], char data[50]) {
-    for (int x = 0; x < 50; x++) {
-        if (target[x] == '\0') {
+    int target_size = get_char_array_count(target);
+    int data_size = get_char_array_count(data);
+
+    for (int x = 0; x < target_size; x++) {
+        target[x] = '\0';
+    }
+    for (int x = 0; x < data_size; x++) {
+        if (data[x] == '\0') {
             break;
         }
         target[x] = data[x];
