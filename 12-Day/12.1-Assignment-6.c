@@ -39,7 +39,9 @@ int confirm_password(int login_user_index);
 
 void edit_user_info(int login_user_index);
 
-int transfer_point(int login_user_index);
+void transfer_point(int login_user_index);
+
+void show_user_point_transaction(int login_user_index);
 
 
 /**
@@ -71,6 +73,8 @@ int get_auth_user_index();
 
 int get_user_index_by_email();
 
+int get_user_index_by_id(int id);
+
 /**
  * Helpers End ...............................
  */
@@ -78,7 +82,6 @@ int get_user_index_by_email();
 
 typedef struct {
     int id;
-    int user_id;
     int related_id;
     int amount;
     int before_amount;
@@ -98,6 +101,7 @@ typedef struct {
     char status[10];
     int point;
     char role[10];
+    int point_transaction_count;
     POINT_TRANSACTION point_transaction[100];
 } DB;
 
@@ -112,6 +116,8 @@ const char G_USER_ROLE_USER[5] = "user";
 const char G_USER_ROLE_ADMIN[6] = "admin";
 const char G_STATUS_ACTIVE[7] = "active";
 const char G_STATUS_INACTIVE[10] = "inactive";
+const char G_IN[4] = "in";
+const char G_OUT[4] = "out";
 
 int g_user_count = 0;
 int g_login_user_id = 0;
@@ -201,9 +207,10 @@ void registration() {
     users[g_user_count].phone = r_phone;
     users[g_user_count].postcode = r_postcode;
     copy_two_char_array(users[g_user_count].address, r_address);
-    copy_two_char_array(users[g_user_count].role,G_USER_ROLE_USER);
+    copy_two_char_array(users[g_user_count].role, G_USER_ROLE_USER);
     users[g_user_count].point = G_USER_INITIAL_POINT;
     copy_two_char_array(users[g_user_count].status, G_STATUS_ACTIVE);
+    users[g_user_count].point_transaction_count = 0;
     g_user_count++;
 
     printf("*********Registered Successfully*********\n");
@@ -419,7 +426,7 @@ void show_dashboard() {
 void user_dashboard(int login_user_index) {
     printf("\n Welcome User (%s) \n", users[login_user_index].name);
     int option = 0;
-    printf("Enter 1 To See Your Info.\nEnter 2 To Edit Your Info.\nEnter 3 To Transfer Points.\nEnter 4 To Logout\n");
+    printf("Enter 1 To See Your Info.\nEnter 2 To Edit Your Info.\nEnter 3 To Transfer Points.\nEnter 4 To See Transactions\nEnter 5 To Logout\n");
     printf("Enter Here => ");
     scanf("%d", &option);
     switch (option) {
@@ -436,9 +443,12 @@ void user_dashboard(int login_user_index) {
             transfer_point(login_user_index);
             break;
         case 4:
+            show_user_point_transaction(login_user_index);
+           user_dashboard(login_user_index);
+            break;
+        case 5:
             printf("********** Bye Bye **********\n");
             menu();
-            break;
         default:
             printf("******** Wrong Choice! *********\n");
             user_dashboard(login_user_index);
@@ -578,8 +588,7 @@ int confirm_password(int login_user_index) {
     return 0;
 }
 
-int transfer_point(int login_user_index) {
-
+void transfer_point(int login_user_index) {
     int remaining_point = users[login_user_index].point;
     printf("\n********* Transfer Your Point *******\n");
     printf("Your Remaining Points => %d\n", remaining_point);
@@ -611,9 +620,9 @@ int transfer_point(int login_user_index) {
 
     if (confirm_option == 2) {
         show_dashboard();
-    }else if (confirm_option == 3) {
+    } else if (confirm_option == 3) {
         transfer_point(login_user_index);
-    }else if (confirm_option == 1) {
+    } else if (confirm_option == 1) {
         int enough_point = 0;
         int amount = 0;
         while (!enough_point) {
@@ -621,24 +630,81 @@ int transfer_point(int login_user_index) {
             scanf("%d", &amount);
             if (amount < remaining_point) {
                 enough_point = 1;
-            }else {
+            } else {
                 printf("*********** You Don't Have Enough Point!************\n");
             }
         }
 
+
+        int receiver_transaction_count = users[receiver_index].point_transaction_count;
+        int sender_transaction_count = users[login_user_index].point_transaction_count;
+
+        users[receiver_index].point_transaction[receiver_transaction_count].id = receiver_transaction_count + 1;
+        users[receiver_index].point_transaction[receiver_transaction_count].related_id = users[login_user_index].id;
+        users[receiver_index].point_transaction[receiver_transaction_count].amount = amount;
+        users[receiver_index].point_transaction[receiver_transaction_count].before_amount = users[receiver_index].point;
+        users[receiver_index].point_transaction[receiver_transaction_count].after_amount =
+                users[receiver_index].point + amount;
+        copy_two_char_array(users[receiver_index].point_transaction[receiver_transaction_count].type, G_IN);
+        users[receiver_index].point_transaction_count = receiver_transaction_count + 1;
+
+        users[login_user_index].point_transaction[sender_transaction_count].id = sender_transaction_count + 1;
+        users[login_user_index].point_transaction[sender_transaction_count].related_id = users[receiver_index].id;
+        users[login_user_index].point_transaction[sender_transaction_count].amount = amount;
+        users[login_user_index].point_transaction[sender_transaction_count].before_amount = users[login_user_index].
+                point;
+        users[login_user_index].point_transaction[sender_transaction_count].after_amount =
+                users[login_user_index].point - amount;
+        copy_two_char_array(users[login_user_index].point_transaction[sender_transaction_count].type, G_OUT);
+        users[login_user_index].point_transaction_count = sender_transaction_count + 1;
+
+
         users[receiver_index].point = users[receiver_index].point + amount;
         users[login_user_index].point = remaining_point - amount;
 
-
         printf("****************** Transfered Point Successfully ***************\n");
         show_dashboard();
-
-    }else {
+    } else {
         printf("************* Wrong Option! Try Again *****************\n");
         transfer_point(login_user_index);
     }
-
 }
+
+void show_user_point_transaction(int login_user_index) {
+    int point_transaction_count = users[login_user_index].point_transaction_count;
+    printf("\n*********** Your Point Transactions ***********\n");
+    printf("Your Points => %d\n", users[login_user_index].point);
+
+    // Print table header
+    printf(
+        "-----------------------------------------------------------------------------------------------------------\n");
+    printf("%-5s %-5s %-10s %-10s %-10s %-10s %-15s %-25s %-20s\n",
+           "No", "ID", "Type", "Amount", "Before", "After", "Related Name", "Related Email", "Remark");
+    printf(
+        "-----------------------------------------------------------------------------------------------------------\n");
+
+    for (int x = 0; x < point_transaction_count; x++) {
+        int number = x + 1;
+        int related_id = users[login_user_index].point_transaction[x].related_id;
+
+        int related_user_index = get_user_index_by_id(related_id);
+
+        printf("%5d %-5d %-10s %-10d %-10d %-10d %-15s %-25s %-20s\n",
+               number,
+               users[login_user_index].point_transaction[x].id,
+               users[login_user_index].point_transaction[x].type,
+               users[login_user_index].point_transaction[x].amount,
+               users[login_user_index].point_transaction[x].before_amount,
+               users[login_user_index].point_transaction[x].after_amount,
+               users[related_user_index].name,
+               users[related_user_index].email,
+               users[login_user_index].point_transaction[x].remark);
+        printf(
+        "-----------------------------------------------------------------------------------------------------------\n");
+
+    }
+}
+
 
 /**
  * Functions End ...............................
@@ -765,6 +831,17 @@ int get_user_index_by_email() {
         }
     }
 
+    return user_index;
+}
+
+int get_user_index_by_id(int id) {
+    int user_index = -1;
+    for (int x = 0; x < g_user_count; x++) {
+        if (users[x].id == id) {
+            user_index = x;
+            break;
+        }
+    }
     return user_index;
 }
 
