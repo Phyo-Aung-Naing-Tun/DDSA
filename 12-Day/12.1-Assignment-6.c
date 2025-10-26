@@ -43,6 +43,12 @@ void transfer_point(int login_user_index);
 
 void show_user_point_transaction(int login_user_index);
 
+void manage_user(int login_user_index);
+
+void show_users();
+
+void bann_user(int login_user_index);
+
 
 /**
  * Functions End ...............................
@@ -131,9 +137,14 @@ int main() {
     printf("****************Welcome To IDS System***************\n");
     sync_data();
     menu();
+    save_data();
     return 0;
 }
-
+// char a_name[20] = "PhyoAungNaingTun";
+    // char a_email[20] = "phyoaung@gmail.com";
+    // char a_password[20] = "admin@123";
+    // int a_phone = 111111;
+    // char a_address[20] = "Hlaing";
 /**
 * Functions Start .............................
 */
@@ -150,7 +161,6 @@ void menu() {
         login();
     } else if (option == 3) {
         save_data();
-        sync_data();
         exit(1);
     } else {
         printf("******Wrong Option*******\n");
@@ -262,8 +272,8 @@ void save_data() {
     // char a_password[20] = "admin@123";
     // int a_phone = 111111;
     // char a_address[20] = "Hlaing";
-    //
-    //
+
+
     // users[g_user_count].id = g_user_count + 1;
     // copy_two_char_array(users[g_user_count].name, a_name);
     // copy_two_char_array(users[g_user_count].email, a_email);
@@ -474,6 +484,7 @@ void admin_dashboard(int login_user_index) {
             break;
         case 3:
             printf("********* Manage Users *******\n");
+            manage_user(login_user_index);
             break;
         case 4:
             printf("********** Bye Bye **********\n");
@@ -689,7 +700,7 @@ void show_user_point_transaction(int login_user_index) {
 
         int related_user_index = get_user_index_by_id(related_id);
 
-        printf("%5d %-5d %-10s %-10d %-10d %-10d %-15s %-25s %-20s\n",
+        printf("%-5d %-5d %-10s %-10d %-10d %-10d %-15s %-25s %-20s\n",
                number,
                users[login_user_index].point_transaction[x].id,
                users[login_user_index].point_transaction[x].type,
@@ -703,6 +714,84 @@ void show_user_point_transaction(int login_user_index) {
         "-----------------------------------------------------------------------------------------------------------\n");
 
     }
+}
+
+void manage_user(int login_user_index) {
+    printf("******* Manage Users ********\n");
+    int option = 0;
+    printf("Enter 1 To See Users\nEnter 2 Ban Users\nEnter 3 To Go Back\n");
+    printf("Enter Here => ");
+    scanf("%d", &option);
+
+    if (option == 1) {
+        show_users();
+        admin_dashboard(login_user_index);
+    }else if (option == 2) {
+        bann_user(login_user_index);
+    }else if (option == 3) {
+        admin_dashboard(login_user_index);
+    }else {
+        printf("********* Wrong Option *********\n");
+        manage_user(login_user_index);
+    }
+
+}
+
+void show_users() {
+    printf("****** User Lists ********\n");
+    printf(
+       "--------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("%-5s %-5s %-20s %-20s %-10s %-10s %-10s %-25s %-10s %-20s\n",
+           "No", "ID", "Name", "Email", "Phone", "Postcode", "Point", "Transaction Count","Status", "Address");
+    for (int x = 0; x < g_user_count; x++) {
+        int number = x + 1;
+        printf("%-5d %-5d %-20s %-20s %-10d %-10d %-10d %-25d %-10s %-20s\n",
+               number,
+               users[x].id,
+               users[x].name,
+               users[x].email,
+               users[x].phone,
+               users[x].postcode,
+               users[x].point,
+               users[x].point_transaction_count,
+               users[x].status,
+               users[x].address
+               );
+
+        printf(
+        "--------------------------------------------------------------------------------------------------------------------------------------\n");
+    }
+
+};
+
+void bann_user(int login_user_index) {
+    char b_email[50];
+    int option = 0;
+    printf("******* Ban User *******\n");
+    printf("********** Enter User Email To Ban ************\n");
+    printf("Enter Here =>");
+    scanf(" %[^\n]", &b_email[0]);
+
+    int user_index = get_user_index_by_email(b_email);
+    if (user_index == -1) {
+        printf("**** User Not Found ******\n");
+        printf("Enter 1 To Retry\nEnter 2 To Go Back\n");
+        printf("Enter Here ==> ");
+        if (option == 1) {
+            bann_user(login_user_index);
+        }else if (option == 2) {
+            manage_user(login_user_index);
+        }else {
+            printf("******** Wrong Option *******\n");
+            bann_user(login_user_index);
+        }
+    }
+
+    copy_two_char_array(users[user_index].status, G_STATUS_INACTIVE);
+
+    printf("************ Banned User Successfully ************\n");
+    manage_user(login_user_index);
+
 }
 
 
