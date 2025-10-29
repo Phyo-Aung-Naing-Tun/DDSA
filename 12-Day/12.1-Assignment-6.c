@@ -49,6 +49,10 @@ void show_users();
 
 void bann_user(int login_user_index);
 
+void active_user(int login_user_index);
+
+int check_user_active(int user_index);
+
 
 /**
  * Functions End ...............................
@@ -244,9 +248,15 @@ void login() {
         if (is_email_exist) {
             int is_password_exist = check_two_char_array(users[x].password, l_password);
             if (is_password_exist) {
-                g_login_user_id = users[x].id;
-                is_success = 1;
-                break;
+                if (check_user_active(x)) {
+                    g_login_user_id = users[x].id;
+                    is_success = 1;
+                    break;
+                }else {
+                    printf("***************Your Account Is Banned By Admin*********\n");
+                    break;
+                }
+
             }
         }
     }
@@ -600,6 +610,7 @@ int confirm_password(int login_user_index) {
 }
 
 void transfer_point(int login_user_index) {
+    int option = -1;
     int remaining_point = users[login_user_index].point;
     printf("\n********* Transfer Your Point *******\n");
     printf("Your Remaining Points => %d\n", remaining_point);
@@ -610,12 +621,38 @@ void transfer_point(int login_user_index) {
 
     if (receiver_index == -1 || check_two_char_array(G_USER_ROLE_ADMIN, users[receiver_index].role)) {
         printf("********** Receiver Not Found! Please Try Again **********\n");
-        transfer_point(login_user_index);
+        printf("Enter 1 to go Back\nEnter 2 to continue\n");
+        printf("Enter Here => ");
+        scanf("%d", &option);
+        if (option == 1) {
+            show_dashboard();
+        }else {
+            transfer_point(login_user_index);
+        }
     }
 
     if (receiver_index == login_user_index) {
         printf("********** You Can't Transfer Yourself! Please Try Again **********\n");
-        transfer_point(login_user_index);
+        printf("Enter 1 to go Back\nEnter 2 to continue\n");
+        printf("Enter Here => ");
+        scanf("%d", &option);
+        if (option == 1) {
+            show_dashboard();
+        }else {
+            transfer_point(login_user_index);
+        }
+    }
+
+    if (!check_user_active(receiver_index)) {
+        printf("********** Receiver Account Is Banned By Admin **********\n");
+        printf("Enter 1 to go Back\nEnter 2 to continue\n");
+        printf("Enter Here => ");
+        scanf("%d", &option);
+        if (option == 1) {
+            show_dashboard();
+        }else {
+            transfer_point(login_user_index);
+        }
     }
 
     printf("\n********** Receiver Info ***********\n");
@@ -719,16 +756,20 @@ void show_user_point_transaction(int login_user_index) {
 void manage_user(int login_user_index) {
     printf("******* Manage Users ********\n");
     int option = 0;
-    printf("Enter 1 To See Users\nEnter 2 Ban Users\nEnter 3 To Go Back\n");
+    printf("Enter 1 To See Users\nEnter 2 Ban Users\nEnter 3 To Active User\nEnter 4 To Go Back\n");
     printf("Enter Here => ");
     scanf("%d", &option);
 
     if (option == 1) {
         show_users();
-        admin_dashboard(login_user_index);
+        manage_user(login_user_index);
     }else if (option == 2) {
         bann_user(login_user_index);
+        manage_user(login_user_index);
     }else if (option == 3) {
+        active_user(login_user_index);
+        manage_user(login_user_index);
+    }else if (option == 4) {
         admin_dashboard(login_user_index);
     }else {
         printf("********* Wrong Option *********\n");
@@ -743,6 +784,8 @@ void show_users() {
        "--------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("%-5s %-5s %-20s %-20s %-10s %-10s %-10s %-25s %-10s %-20s\n",
            "No", "ID", "Name", "Email", "Phone", "Postcode", "Point", "Transaction Count","Status", "Address");
+    printf(
+       "--------------------------------------------------------------------------------------------------------------------------------------\n");
     for (int x = 0; x < g_user_count; x++) {
         int number = x + 1;
         printf("%-5d %-5d %-20s %-20s %-10d %-10d %-10d %-25d %-10s %-20s\n",
@@ -765,18 +808,16 @@ void show_users() {
 };
 
 void bann_user(int login_user_index) {
-    char b_email[50];
     int option = 0;
     printf("******* Ban User *******\n");
     printf("********** Enter User Email To Ban ************\n");
-    printf("Enter Here =>");
-    scanf(" %[^\n]", &b_email[0]);
 
-    int user_index = get_user_index_by_email(b_email);
+    int user_index = get_user_index_by_email();
     if (user_index == -1) {
         printf("**** User Not Found ******\n");
         printf("Enter 1 To Retry\nEnter 2 To Go Back\n");
         printf("Enter Here ==> ");
+        scanf("%d", &option);
         if (option == 1) {
             bann_user(login_user_index);
         }else if (option == 2) {
@@ -790,8 +831,40 @@ void bann_user(int login_user_index) {
     copy_two_char_array(users[user_index].status, G_STATUS_INACTIVE);
 
     printf("************ Banned User Successfully ************\n");
-    manage_user(login_user_index);
+}
 
+void active_user(int login_user_index) {
+    int option = 0;
+    printf("******* Active User *******\n");
+    printf("********** Enter User Email To Active ************\n");
+
+    int user_index = get_user_index_by_email();
+    if (user_index == -1) {
+        printf("**** User Not Found ******\n");
+        printf("Enter 1 To Retry\nEnter 2 To Go Back\n");
+        printf("Enter Here ==> ");
+        scanf("%d", &option);
+        if (option == 1) {
+            active_user(login_user_index);
+        }else if (option == 2) {
+            manage_user(login_user_index);
+        }else {
+            printf("******** Wrong Option *******\n");
+            active_user(login_user_index);
+        }
+    }
+
+    copy_two_char_array(users[user_index].status, G_STATUS_ACTIVE);
+
+    printf("************ Active User Successfully ************\n");
+}
+
+int check_user_active(int user_index) {
+    if (check_two_char_array(G_STATUS_ACTIVE, users[user_index].status)) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 
