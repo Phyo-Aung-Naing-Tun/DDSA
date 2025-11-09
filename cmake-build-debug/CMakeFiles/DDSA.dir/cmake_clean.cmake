@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DDSA.dir/link.d"
-  "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o"
-  "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o.d"
+  "CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o"
+  "CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o.d"
   "DDSA"
   "DDSA.pdb"
 )

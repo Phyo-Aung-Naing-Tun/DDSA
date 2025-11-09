@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/393/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/393/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -72,28 +72,28 @@ include CMakeFiles/DDSA.dir/flags.make
 CMakeFiles/DDSA.dir/codegen:
 .PHONY : CMakeFiles/DDSA.dir/codegen
 
-CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o: CMakeFiles/DDSA.dir/flags.make
-CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/12-Day/12.1-Assignment-6.c
-CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o -MF CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o.d -o CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/12-Day/12.1-Assignment-6.c
+CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o: CMakeFiles/DDSA.dir/flags.make
+CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o: /home/phyo-aung-naing-tun/Documents/DDSA/18-Day/18.1-Double_LInk_List.c
+CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o: CMakeFiles/DDSA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o -MF CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o.d -o CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o -c /home/phyo-aung-naing-tun/Documents/DDSA/18-Day/18.1-Double_LInk_List.c
 
-CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/12-Day/12.1-Assignment-6.c > CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.i
+CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/phyo-aung-naing-tun/Documents/DDSA/18-Day/18.1-Double_LInk_List.c > CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.i
 
-CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/12-Day/12.1-Assignment-6.c -o CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.s
+CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/phyo-aung-naing-tun/Documents/DDSA/18-Day/18.1-Double_LInk_List.c -o CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.s
 
 # Object files for target DDSA
 DDSA_OBJECTS = \
-"CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o"
+"CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o"
 
 # External object files for target DDSA
 DDSA_EXTERNAL_OBJECTS =
 
-DDSA: CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o
+DDSA: CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o
 DDSA: CMakeFiles/DDSA.dir/build.make
 DDSA: CMakeFiles/DDSA.dir/compiler_depend.ts
 DDSA: CMakeFiles/DDSA.dir/link.txt

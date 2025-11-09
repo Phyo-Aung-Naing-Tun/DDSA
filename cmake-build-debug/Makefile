@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/393/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/393/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/phyo-aung-naing-tun/Documents/DDSA/cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/snap/clion/385/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/393/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/snap/clion/385/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/393/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -136,29 +136,29 @@ DDSA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/build
 .PHONY : DDSA/fast
 
-12-Day/12.1-Assignment-6.o: 12-Day/12.1-Assignment-6.c.o
-.PHONY : 12-Day/12.1-Assignment-6.o
+18-Day/18.1-Double_LInk_List.o: 18-Day/18.1-Double_LInk_List.c.o
+.PHONY : 18-Day/18.1-Double_LInk_List.o
 
 # target to build an object file
-12-Day/12.1-Assignment-6.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o
-.PHONY : 12-Day/12.1-Assignment-6.c.o
+18-Day/18.1-Double_LInk_List.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o
+.PHONY : 18-Day/18.1-Double_LInk_List.c.o
 
-12-Day/12.1-Assignment-6.i: 12-Day/12.1-Assignment-6.c.i
-.PHONY : 12-Day/12.1-Assignment-6.i
+18-Day/18.1-Double_LInk_List.i: 18-Day/18.1-Double_LInk_List.c.i
+.PHONY : 18-Day/18.1-Double_LInk_List.i
 
 # target to preprocess a source file
-12-Day/12.1-Assignment-6.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.i
-.PHONY : 12-Day/12.1-Assignment-6.c.i
+18-Day/18.1-Double_LInk_List.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.i
+.PHONY : 18-Day/18.1-Double_LInk_List.c.i
 
-12-Day/12.1-Assignment-6.s: 12-Day/12.1-Assignment-6.c.s
-.PHONY : 12-Day/12.1-Assignment-6.s
+18-Day/18.1-Double_LInk_List.s: 18-Day/18.1-Double_LInk_List.c.s
+.PHONY : 18-Day/18.1-Double_LInk_List.s
 
 # target to generate assembly for a file
-12-Day/12.1-Assignment-6.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.s
-.PHONY : 12-Day/12.1-Assignment-6.c.s
+18-Day/18.1-Double_LInk_List.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DDSA.dir/build.make CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.s
+.PHONY : 18-Day/18.1-Double_LInk_List.c.s
 
 # Help Target
 help:
@@ -170,9 +170,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DDSA"
-	@echo "... 12-Day/12.1-Assignment-6.o"
-	@echo "... 12-Day/12.1-Assignment-6.i"
-	@echo "... 12-Day/12.1-Assignment-6.s"
+	@echo "... 18-Day/18.1-Double_LInk_List.o"
+	@echo "... 18-Day/18.1-Double_LInk_List.i"
+	@echo "... 18-Day/18.1-Double_LInk_List.s"
 .PHONY : help
 
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/phyo-aung-naing-tun/Documents/DDSA/12-Day/12.1-Assignment-6.c" "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o" "gcc" "CMakeFiles/DDSA.dir/12-Day/12.1-Assignment-6.c.o.d"
+  "/home/phyo-aung-naing-tun/Documents/DDSA/18-Day/18.1-Double_LInk_List.c" "CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o" "gcc" "CMakeFiles/DDSA.dir/18-Day/18.1-Double_LInk_List.c.o.d"
   "" "DDSA" "gcc" "CMakeFiles/DDSA.dir/link.d"
   )
 
